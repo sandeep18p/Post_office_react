@@ -1,24 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import Search from './Components/Search';
+import { useState } from 'react';
+import PostOffice from './Components/PostOffice';
 
 function App() {
+  const [data, setData] = useState(false);
+  const [pincode, setPincode] = useState('');
+  const [show,setShow]=useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {data === false ? <Search setData={setData} pincode={pincode} setPincode={setPincode} setShow={setShow}/> : <PostOffice pincode={pincode} show={show} setShow={setShow}></PostOffice>}
+    </>
   );
 }
 
