@@ -6,7 +6,7 @@ export default function PostOffice({ pincode, show}) {
     const [filteredData, setFilteredData] = useState(show); 
 
    
-
+ 
     function handleFilter(char) {
         if (!char) {
             setFilteredData(originalData); 
